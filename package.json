@@ -1,13 +1,24 @@
 {
   "name": "x",
   "type": "module",
+  "packageManager": "pnpm@10.7.0",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "prepare": "husky"
   },
-  "packageManager": "pnpm@10.7.0",
   "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "eslint": "^9.23.0",
+    "eslint-plugin-format": "^1.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "vitepress": "^1.6.3"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
