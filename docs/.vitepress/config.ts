@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   title: "X",
@@ -10,5 +11,10 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/litingyes/x' }
     ]
+  },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   }
 })
