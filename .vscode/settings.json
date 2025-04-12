@@ -33,5 +33,12 @@
     "json",
     "css",
     "scss"
+  ],
+  "vite.buildCommand": "pnpm build",
+  "vite.devCommand": "pnpm dev",
+  "vite.vitepressAutoRouting": true,
+  "vite.vitepressBase": "docs",
+  "cSpell.words": [
+    "QDII"
   ]
 }
