@@ -1,5 +1,13 @@
 import { defineConfig } from 'vitepress'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
+import { getGitCreatedTimestamp } from './theme/utils/getGitCreatedTimestamp'
+
+declare module 'vitepress' {
+  interface PageData {
+    created?: number
+  }
+}
 
 export default defineConfig({
   title: "X",
@@ -16,5 +24,9 @@ export default defineConfig({
     plugins: [
       tailwindcss(),
     ],
-  }
+  },
+ async transformPageData(pageData, ctx) {
+    const filePath = resolve(ctx.siteConfig.root,pageData.filePath)
+    pageData.created = await getGitCreatedTimestamp(filePath)
+  },
 })
